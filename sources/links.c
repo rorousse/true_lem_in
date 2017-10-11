@@ -108,5 +108,5 @@ int			create_link(char *line, t_piece *lst)
 	ret += binding(lst, rooms);
 	free(rooms[0]);
 	free(rooms[1]);
-	return (ret);
+	return ((ret == 2)? 1 : 0);
 }
