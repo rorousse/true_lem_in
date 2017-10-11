@@ -39,12 +39,12 @@ static int	is_piece(char *line)
 	if (line[i] != ' ')
 		return (0);
 	i++;
-	while (line[i] && ft_isalnum(line[i]))
+	while (line[i] && ft_isdigit(line[i]))
 		i++;
 	if (line[i] != ' ')
 		return (0);
 	i++;
-	while (line[i] && ft_isalnum(line[i]))
+	while (line[i] && ft_isdigit(line[i]))
 		i++;
 	if (line[i])
 		return (0);

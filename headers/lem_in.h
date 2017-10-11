@@ -68,7 +68,6 @@ void					create_ants(t_problem *pb);
 **	CHECKING_C
 */
 
-int					 	check_errors(t_piece *lst);
 int						check_valid_path(t_piece *lst);
 
 /*
