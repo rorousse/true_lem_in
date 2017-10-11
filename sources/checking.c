@@ -31,7 +31,6 @@ static int	check_delim(t_piece *lst)
 		}
 		lst = lst->next;
 	}
-	ft_putendl("CHECK_DELIM OK");
 	return ((lim_start + lim_end) == 2) ? 1 : 0;
 }
 

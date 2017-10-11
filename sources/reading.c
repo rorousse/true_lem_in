@@ -74,19 +74,18 @@ t_problem		get_setup(int fd)
 	t_problem	pb;
 	char 		*line;
 	e_state			lim;
-	int			ret;
 
 	lim = ANTS;
-	ret = 1;
+	pb.ret = 1;
 	pb.lst = NULL;
 	pb.ants = NULL;
 	line = NULL;
-	while (get_next_line(fd, &line) > 0 && ret)
+	while (get_next_line(fd, &line) > 0 && pb.ret)
 	{
 		ft_putendl(line);
 		if (line[0] != '#')
 		{
-			ret = read_line(line, &pb, lim);
+			pb.ret = read_line(line, &pb, lim);
 			lim = PIECE;
 		}
 		else if (ft_strcmp(line, "##start") == 0)

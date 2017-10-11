@@ -53,6 +53,7 @@ struct s_ants
 struct s_problem
 {
 	int		nb_ants;
+	int		ret;
 	t_ants	*ants;
 	t_piece	*lst;
 };
