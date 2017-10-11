@@ -14,18 +14,18 @@
 #include "lem_in.h"
 #include "../libft/libft.h"
 
-static int		check_double(t_piece *lst, char *id)
+static int		check_double(t_piece *lst, char *id, e_state lim)
 {
 	while (lst)
 	{
-		if (ft_strcmp(lst->id, id) == 0)
+		if (ft_strcmp(lst->id, id) == 0 || (lim == lst->delim && (lim == END || lim == START)))
 			return (1);
 		lst = lst->next;
 	}
 	return (0);
 }
 
-static t_piece	*create_elem_piece(char *line, int lim, t_piece *lst)
+static t_piece	*create_elem_piece(char *line, e_state lim, t_piece *lst)
 {
 	t_piece *elem;
 	char 	**tmp;
@@ -33,7 +33,7 @@ static t_piece	*create_elem_piece(char *line, int lim, t_piece *lst)
 	elem = NULL;
 	if ((tmp = ft_strsplit(line, ' ')) == NULL)
 		return (NULL);
-	if (!check_double(lst, tmp[0]))
+	if (!check_double(lst, tmp[0], lim))
 	{
 		if ((elem = (t_piece*)malloc(sizeof(t_piece))) == NULL)
 			return (NULL);
@@ -51,7 +51,7 @@ static t_piece	*create_elem_piece(char *line, int lim, t_piece *lst)
 	return (elem);
 }
 
-int			create_piece(char *line, t_piece **lst, int lim)
+int			create_piece(char *line, t_piece **lst, e_state lim)
 {
 	t_piece *tmp;
 	t_piece *elem;

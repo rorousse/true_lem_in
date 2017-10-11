@@ -99,7 +99,7 @@ void					ft_resolve(t_problem pb);
 ** PIECE_C
 */
 
-int						create_piece(char *line, t_piece **lst, int lim);
+int						create_piece(char *line, t_piece **lst, e_state lim);
 
 /*
 ** READING_C
