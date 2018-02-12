@@ -32,5 +32,6 @@ int main(void)
 	free_pieces(test.lst);
 	if (test.ants)
 		free(test.ants);
+	sleep(3);
 	return (0);
 }

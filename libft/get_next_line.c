@@ -100,7 +100,7 @@ int				get_next_line(int const fd, char **line)
 	ret_read = 1;
 	while (ret_chr == NULL && ret_read > 0)
 	{
-		if ((ret_read = read(fd, buffer->data, BUFF_SIZE)) == -1)
+		if ((ret_read = read(fd, buffer->data, BUFF_SIZE)) == -1 || buffer->data[0] == 0)
 			return (-1);
 		buffer->data[ret_read] = '\0';
 		ret_chr = ft_strchr(buffer->data, '\n');
