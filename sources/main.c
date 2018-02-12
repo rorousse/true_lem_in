@@ -18,7 +18,7 @@ int main(void)
 	t_problem test;
 
 	test = get_setup(0);
-	if (test.ret)
+	if (test.ret && test.nb_ants > 0)
 	{
 		create_ants(&test);
 		set_weight(test.lst);

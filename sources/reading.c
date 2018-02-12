@@ -76,6 +76,7 @@ t_problem		get_setup(int fd)
 	e_state			lim;
 
 	lim = ANTS;
+	pb.nb_ants = 0;
 	pb.ret = 1;
 	pb.lst = NULL;
 	pb.ants = NULL;
@@ -94,6 +95,7 @@ t_problem		get_setup(int fd)
 			lim = END;
 		free(line);
 	}
-	free(line);
+	if (line != NULL)
+		free(line);
 	return (pb);
 }
