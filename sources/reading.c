@@ -12,6 +12,15 @@
 
 #include "lem_in.h"
 
+static int	is_ant(char *line)
+{
+	while (ft_isdigit(*line))
+		line++;
+	if (*line != 0)
+		return (0);
+	return (1);
+}
+
 static int	is_link(char *line)
 {
 	int	i;
@@ -55,6 +64,8 @@ static int	read_line(char *line, t_problem *pb, e_state lim)
 {
 	if (lim == ANTS)
 	{
+		if (!is_ant(line))
+			return (0);
 		pb->nb_ants = ft_atoi(line);
 		return (1);
 	}
@@ -89,9 +100,9 @@ t_problem		get_setup(int fd)
 			pb.ret = read_line(line, &pb, lim);
 			lim = PIECE;
 		}
-		else if (ft_strcmp(line, "##start") == 0)
+		else if (ft_strcmp(line, "##start") == 0 && lim == PIECE)
 			lim = START;
-		else if (ft_strcmp(line, "##end") == 0)
+		else if (ft_strcmp(line, "##end") == 0 && lim == PIECE)
 			lim = END;
 		free(line);
 	}

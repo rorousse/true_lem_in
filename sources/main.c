@@ -27,6 +27,8 @@ int main(void)
 		else
 			ft_resolve(test);
 	}
+	else
+		ft_putendl("ERROR");
 	free_pieces(test.lst);
 	if (test.ants)
 		free(test.ants);
