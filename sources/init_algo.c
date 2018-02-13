@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 15:34:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/11/21 15:34:36 by rorousse         ###   ########.fr       */
+/*   Updated: 2018/02/13 19:37:09 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,8 @@ static void	set_weight_rec(t_piece *lst)
 	t_link *tmp;
 
 	tmp = lst->links;
-	/*
-	ft_putstr("On passe par ");
-	ft_putendl(lst->id);
-	*/
 	while (tmp)
 	{
-		/*
-		ft_putstr("On regarde le link ");
-		ft_putendl((tmp->room)->id);
-		*/
 		if ((tmp->room)->weight == -1)
 		{
 			(tmp->room)->weight = (lst->weight) + 1;
@@ -52,7 +44,10 @@ static void	set_weight_rec(t_piece *lst)
 
 void	set_weight(t_piece *lst)
 {
-	init_set_weight(&lst);
-	lst->weight = 0;
-	set_weight_rec(lst);
+	if (lst != NULL)
+	{
+		init_set_weight(&lst);
+		lst->weight = 0;
+		set_weight_rec(lst);
+	}
 }

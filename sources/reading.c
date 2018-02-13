@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 12:46:29 by rorousse          #+#    #+#             */
-/*   Updated: 2016/11/04 12:46:31 by rorousse         ###   ########.fr       */
+/*   Updated: 2018/02/13 19:35:39 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	read_line(char *line, t_problem *pb, e_state lim)
 	{
 		return (create_piece(line, &(pb->lst), lim));
 	}
-	return (0);
+	return (1);
 }
 
 t_problem		get_setup(int fd)
